@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Plan AI - Your Personalized Fitness Journey</title>
+    <meta name="description" content="Generate personalized workout and diet plans in seconds using AI.">
+    <!-- Google Fonts: Outfit for modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <main class="app-container">
+        
+        <!-- SECTION: Login Page -->
+        <section id="login-section" class="screen view-active">
+            <div class="form-container glass-panel" style="margin: auto; max-width: 450px;">
+                <div class="text-center" style="text-align: center; margin-bottom: 2rem;">
+                    <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                        <i class="fa-solid fa-bolt text-primary"></i> <span class="logo-text">FitPlan<span class="text-primary">AI</span></span>
+                    </div>
+                    <h2 class="form-title">Welcome Back</h2>
+                    <p class="form-desc" style="margin-bottom: 0;">Sign in to continue your fitness journey</p>
+                </div>
+
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" name="email" autocomplete="username" placeholder="you@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" autocomplete="current-password" placeholder="••••••••" required>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; font-size: 0.9rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0; cursor: pointer; color: var(--text-muted);">
+                            <input type="checkbox" style="width: auto;"> Remember me
+                        </label>
+                        <a href="#" class="text-primary" style="text-decoration: none;">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" id="login-btn" class="btn btn-primary btn-glow" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 1rem;">
+                        Sign In
+                    </button>
+                    
+                    <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+                        Don't have an account? <a href="#" id="show-signup" class="text-secondary" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Sign up</a>
+                    </div>
+                </form>
+
+                <!-- Signup Form (Hidden by default) -->
+                <form id="signup-form" class="view-hidden">
+                    <div class="input-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="name" autocomplete="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" autocomplete="username" placeholder="you@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="password" autocomplete="new-password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" id="signup-btn" class="btn btn-secondary btn-glow" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 1rem; margin-top: 1rem;">
+                        Create Account
+                    </button>
+                    
+                    <div style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+                        Already have an account? <a href="#" id="show-login" class="text-primary" style="text-decoration: none; font-weight: 600;">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECTION: Splash / Landing Page -->
+        <section id="landing-section" class="screen view-hidden">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-bolt text-primary"></i> <span class="logo-text">FitPlan<span class="text-primary">AI</span></span>
+                </div>
+            </header>
+            
+            <div class="hero-content">
+                <span class="badge">AI-Powered Fitness</span>
+                <h1 class="hero-title">Your Ultimate <br><span class="gradient-text">Fitness Blueprint</span></h1>
+                <p class="hero-subtitle">Stop guessing. Let AI build a custom workout routine and diet plan tailored specifically to your body and goals.</p>
+                <button id="start-btn" class="btn btn-primary btn-glow btn-large">
+                    <span>Generate My Plan</span> <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="hero-visual">
+                 <div class="glass-card mock-stats">
+                     <div class="stat-row"><i class="fa-solid fa-fire text-orange"></i> <span>Burn Phase</span></div>
+                     <div class="stat-progress"><div class="stat-bar" style="width: 75%"></div></div>
+                 </div>
+                 <div class="glass-card mock-stats float-delayed">
+                     <div class="stat-row"><i class="fa-solid fa-apple-whole text-green"></i> <span>Macros Auto-Calculated</span></div>
+                     <div class="stat-progress"><div class="stat-bar bg-green" style="width: 100%"></div></div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Questionnaire Form -->
+        <section id="form-section" class="screen view-hidden">
+            <div class="form-container glass-panel">
+                <div class="progress-container">
+                    <div class="progress-bar" id="form-progress"></div>
+                </div>
+                
+                <h2 id="step-title" class="form-title">Let's get to know you</h2>
+                <p id="step-desc" class="form-desc">Provide some basic details to build your profile.</p>
+
+                <form id="fitness-form">
+                    
+                    <!-- Step 1: Basics -->
+                    <div class="form-step active" data-step="1">
+                        <div class="input-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" placeholder="e.g. 25" min="14" max="100" required>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group w-50">
+                                <label for="weight">Weight (kg)</label>
+                                <input type="number" id="weight" name="weight" placeholder="e.g. 70" min="30" max="300" required>
+                            </div>
+                            <div class="input-group w-50">
+                                <label for="height">Height (cm)</label>
+                                <input type="number" id="height" name="height" placeholder="e.g. 175" min="100" max="250" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Gender/Biology (For accurate metabolic calculations)</label>
+                            <div class="radio-chip-group">
+                                <input type="radio" id="gender-male" name="gender" value="male" checked>
+                                <label for="gender-male" class="radio-chip"><i class="fa-solid fa-person"></i> Male</label>
+                                
+                                <input type="radio" id="gender-female" name="gender" value="female">
+                                <label for="gender-female" class="radio-chip"><i class="fa-solid fa-person-dress"></i> Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Goal -->
+                    <div class="form-step view-hidden" data-step="2">
+                        <div class="input-group">
+                            <label>Primary Goal</label>
+                            <div class="radio-card-group">
+                                <input type="radio" id="goal-weightloss" name="goal" value="weight loss" checked>
+                                <label for="goal-weightloss" class="radio-card">
+                                    <i class="fa-solid fa-weight-scale text-primary"></i>
+                                    <h3>Lose Weight</h3>
+                                    <p>Shed fat and reveal definition</p>
+                                </label>
+                                
+                                <input type="radio" id="goal-muscle" name="goal" value="build muscle">
+                                <label for="goal-muscle" class="radio-card">
+                                    <i class="fa-solid fa-dumbbell text-primary"></i>
+                                    <h3>Build Muscle</h3>
+                                    <p>Increase size and strength</p>
+                                </label>
+                                
+                                <input type="radio" id="goal-maintain" name="goal" value="recomposition">
+                                <label for="goal-maintain" class="radio-card">
+                                    <i class="fa-solid fa-heart-pulse text-primary"></i>
+                                    <h3>Overall Fitness</h3>
+                                    <p>Body recomposition & health</p>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Conditional Goal Inputs -->
+                        <div id="target-loss-group" class="input-group expand-hidden" style="margin-top: 1.5rem;">
+                            <label for="target_amount_loss">How much weight do you want to lose? (kg)</label>
+                            <input type="number" id="target_amount_loss" name="target_amount_loss" placeholder="e.g. 5" min="1" max="50">
+                        </div>
+                        
+                        <div id="target-muscle-group" class="input-group expand-hidden" style="margin-top: 1.5rem;">
+                            <label for="target_amount_muscle">How much muscle do you want to build? (kg)</label>
+                            <input type="number" id="target_amount_muscle" name="target_amount_muscle" placeholder="e.g. 3" min="1" max="30">
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Experience & Preferences -->
+                    <div class="form-step view-hidden" data-step="3">
+                        <div class="input-group">
+                            <label>Fitness Level</label>
+                            <select id="experience" name="experience" required>
+                                <option value="beginner">Beginner (New to lifting/working out)</option>
+                                <option value="intermediate">Intermediate (1-3 years experience)</option>
+                                <option value="advanced">Advanced (3+ years experience)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Where will you work out?</label>
+                            <div class="radio-chip-group">
+                                <input type="radio" id="env-gym" name="environment" value="gym" checked>
+                                <label for="env-gym" class="radio-chip"><i class="fa-solid fa-building"></i> Commercial Gym</label>
+                                
+                                <input type="radio" id="env-home" name="environment" value="home">
+                                <label for="env-home" class="radio-chip"><i class="fa-solid fa-house"></i> Home (Bodyweight/Dumbbells)</label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Dietary Preference</label>
+                            <div class="radio-chip-group">
+                                <input type="radio" id="diet-veg" name="diet" value="veg" checked>
+                                <label for="diet-veg" class="radio-chip"><i class="fa-solid fa-leaf"></i> Vegetarian</label>
+                                
+                                <input type="radio" id="diet-nonveg" name="diet" value="non-veg">
+                                <label for="diet-nonveg" class="radio-chip"><i class="fa-solid fa-drumstick-bite"></i> Non-Vegetarian</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="prev-btn" class="btn btn-secondary" style="display: none;">Back</button>
+                        <button type="button" id="next-btn" class="btn btn-primary">Continue</button>
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-glow" style="display: none;">Generate My Plan</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECTION: Loading / Generating -->
+        <section id="loading-section" class="screen view-hidden">
+             <div class="loader-container">
+                 <div class="ai-orb"></div>
+                 <h2 class="loader-text">Processing...</h2>
+                 <p class="loader-subtext" id="loader-subtext">Please wait...</p>
+                 <div class="steps-progress">
+                    <div class="step-dot active"></div>
+                    <div class="step-dot"></div>
+                    <div class="step-dot"></div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- SECTION: Results Dashboard -->
+        <section id="results-section" class="screen view-hidden">
+            <header class="results-header">
+                <div class="logo">
+                     <i class="fa-solid fa-bolt text-primary"></i> <span class="logo-text">FitPlan<span class="text-primary">AI</span></span>
+                </div>
+                <button id="reset-btn" class="btn btn-icon"><i class="fa-solid fa-rotate-right"></i> Start Over</button>
+            </header>
+
+            <div class="dashboard-grid">
+                
+                <!-- Profile Summary Card -->
+                <div class="glass-panel profile-summary">
+                    <h3>Your Target Profile</h3>
+                    <div id="summary-metrics" class="metrics-grid">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Tabs: Workout vs Diet -->
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-target="workout-tab"><i class="fa-solid fa-dumbbell"></i> Workout Routine</button>
+                        <button class="tab-btn" data-target="diet-tab"><i class="fa-solid fa-utensils"></i> Diet Plan</button>
+                    </div>
+                </div>
+
+                <!-- Workout Tab Content -->
+                <div id="workout-tab" class="tab-content active glass-panel">
+                    <h2 class="section-title text-gradient">Weekly Workout Plan</h2>
+                    <div id="workout-container" class="plan-content">
+                        <!-- Generated via JS -->
+                    </div>
+                </div>
+
+                <!-- Diet Tab Content -->
+                <div id="diet-tab" class="tab-content glass-panel">
+                    <h2 class="section-title text-gradient">Daily Nutrition Blueprint</h2>
+                    <div id="diet-container" class="plan-content">
+                        <!-- Generated via JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <p><i class="fa-solid fa-circle-info"></i> Disclaimer: This is an AI-generated plan. Always consult with a healthcare professional before starting any new fitness or diet routine.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
